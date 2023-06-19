@@ -35,6 +35,7 @@ Checks: >
   -google-runtime-int,
   -cppcoreguidelines-special-member-functions,
   -hicpp-special-member-functions,
+  -cppcoreguidelines-owning-memory,
   -abseil-*,
   -altera-*,
   -bugprone-easily-swappable-parameters,

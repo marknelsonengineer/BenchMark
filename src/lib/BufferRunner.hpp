@@ -25,6 +25,24 @@ private:
    static void fillBufferWithRandomData( const void* buffer, std::size_t size );
 
 protected:
+public:
+   ~BufferRunner() override {
+      if( m_src != nullptr ) {
+         free( m_src );
+         m_src = nullptr;
+      }
+      if( m_guard != nullptr ) {
+         free( m_guard );
+         m_guard = nullptr;
+      }
+
+      if( m_dest != nullptr ) {
+         free( m_dest );
+         m_dest = nullptr;
+      }
+   }
+
+protected:
    void* m_src { nullptr };    ///< A pointer to the source buffer
    void* m_guard { nullptr };  ///< A pointer to the guard buffer
    void* m_dest { nullptr };   ///< A pointer to the destination buffer
