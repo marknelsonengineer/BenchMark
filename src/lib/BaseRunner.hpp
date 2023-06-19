@@ -25,14 +25,6 @@ protected:
    ticks_t m_start_time { 0 };  ///< The start time of the test
    ticks_t m_end_time { 0 };    ///< The end time of the test
 
-   /// Set the overhead of the benchmark (to be subtracted when users call getDuration())
-   /// @param newOverhead The number of ticks to subtract from getDuration()
-   [[maybe_unused]] void setOverhead( ticks_t newOverhead ) { m_overhead = newOverhead; }
-
-   /// Get the current overhead of the benchmark
-   /// @return The number of ticks set as overhead
-   [[maybe_unused]] [[nodiscard]] ticks_t getOverhead() const { return m_overhead; }
-
    /// Get the duration of the run
    /// @return The number of ticks (minus the overhead)
    [[nodiscard]] ticks_t getDuration() const { return m_end_time - m_start_time - m_overhead; }
@@ -54,6 +46,13 @@ public:
    /// The default destructor
    virtual ~BaseRunner() = default;
 
+   /// Set the overhead of the benchmark (to be subtracted when users call getDuration())
+   /// @param newOverhead The number of ticks to subtract from getDuration()
+   [[maybe_unused]] void setOverhead( ticks_t newOverhead ) { m_overhead = newOverhead; }
+
+   /// Get the current overhead of the benchmark
+   /// @return The number of ticks set as overhead
+   [[maybe_unused]] [[nodiscard]] ticks_t getOverhead() const { return m_overhead; }
 
    /// Get the description
    /// @return The description for this BaseRunner

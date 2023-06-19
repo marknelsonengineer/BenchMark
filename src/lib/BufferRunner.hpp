@@ -51,18 +51,22 @@ protected:
 
 public:
    /// Instantiate a BufferRunner
-   /// @param buffer_size The size in bytes of the source and destination buffers
-   /// @param guard_size The size in bytes of the guard buffer
-   BufferRunner( std::size_t buffer_size, std::size_t guard_size )
-         : m_buffer_size( buffer_size )
-           , m_guard_size( guard_size )
-           , m_src( malloc( m_buffer_size ) )
-           , m_guard( malloc( m_guard_size ) )
-           , m_dest( malloc( m_buffer_size ) )
+   /// @param newBufferSize The size in bytes of the source and destination buffers
+   /// @param newGuardSize The size in bytes of the guard buffer
+   /// @param newDescription A description of this test
+   BufferRunner(   const std::size_t newBufferSize
+                 , const std::size_t newGuardSize
+                 , const std::string_view& newDescription )
+         : BaseRunner( newDescription)
+         , m_buffer_size( newBufferSize )
+         , m_guard_size( newGuardSize )
+         , m_src( malloc( m_buffer_size ) )
+         , m_guard( malloc( m_guard_size ) )
+         , m_dest( malloc( m_buffer_size ) )
    {
-      fillBufferWithRandomData( m_src, buffer_size );
-      fillBufferWithRandomData( m_dest, buffer_size );
-      fillBufferWithRandomData( m_guard, guard_size );
+      fillBufferWithRandomData( m_src, newBufferSize );
+      fillBufferWithRandomData( m_dest, newBufferSize );
+      fillBufferWithRandomData( m_guard, newGuardSize );
    };
 
    /// Reset the runner and prepare for another run
@@ -71,6 +75,12 @@ public:
       fillBufferWithRandomData( m_src, m_buffer_size );
       fillBufferWithRandomData( m_dest, m_buffer_size );
       fillBufferWithRandomData( m_guard, m_guard_size );
+   }
+
+   /// Get the size of the buffer (in bytes)
+   /// @return The size of the biffer (in bytes)
+   [[maybe_unused]] [[nodiscard]] size_t getBufferSize() const {
+      return m_buffer_size;
    }
 
 };
