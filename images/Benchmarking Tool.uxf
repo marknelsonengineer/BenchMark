@@ -7,7 +7,7 @@
       <x>280</x>
       <y>10</y>
       <w>200</w>
-      <h>230</h>
+      <h>260</h>
     </coordinates>
     <panel_attributes>/BaseRunner/
 --
@@ -20,6 +20,8 @@
 # getOverhead()
 # getDuration()
 + ~BaseRunner()
++ start_benchmark()
++ end_benchmark()
 /+ doRun()/
 + getDescription()
 + setDescription()</panel_attributes>
@@ -29,7 +31,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>190</x>
-      <y>300</y>
+      <y>340</y>
       <w>370</w>
       <h>180</h>
     </coordinates>
@@ -49,9 +51,9 @@ _- fillBufferWithRandomData()_</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>150</x>
-      <y>550</y>
+      <y>610</y>
       <w>450</w>
-      <h>120</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes>/LogRunner/
 --
@@ -67,23 +69,23 @@ _- fillBufferWithRandomData()_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>230</y>
-      <w>30</w>
-      <h>90</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>360</x>
-      <y>470</y>
+      <y>260</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>510</y>
+      <w>30</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>

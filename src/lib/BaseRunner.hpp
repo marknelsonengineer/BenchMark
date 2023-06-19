@@ -9,6 +9,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+#include <immintrin.h>
 #include <string>
 
 #include "../typedefs.hpp"
@@ -35,6 +36,12 @@ protected:
    /// Get the duration of the run
    /// @return The number of ticks (minus the overhead)
    [[nodiscard]] uint64_t getDuration() const { return m_end_time - m_start_time - m_overhead; }
+
+   /// Start the benchmark
+   inline void start_benchmark() { m_start_time = __rdtsc(); }
+
+   /// End the benchmark
+   inline void end_benchmark() { m_end_time = __rdtsc(); }
 
 public:
    /// Create a basic BaseRunner
