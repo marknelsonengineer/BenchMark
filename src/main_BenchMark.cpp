@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "Test1_memcpy.hpp"
+#include "Test2_memset.hpp"
 #include "lib/LogStudy.hpp"
 #include "lib/Series.hpp"
 #include "lib/Test0_Nothing.hpp"
@@ -48,6 +49,13 @@ int main() {
    memcpyStudy.setNumRuns( NUM_RUNS );
    memcpyStudy.doStudy();
    memcpyStudy.printResults();
+
+   LogStudy<Test2_memset> memsetStudy( "memset", MIN_BITS, MAX_BITS );
+   memsetStudy.setOverhead( baseline_series.getMin() );
+   memsetStudy.setNumPreRuns( 4 );
+   memsetStudy.setNumRuns( NUM_RUNS );
+   memsetStudy.doStudy();
+   memsetStudy.printResults();
 
    return 0;
 }
