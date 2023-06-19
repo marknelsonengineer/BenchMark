@@ -72,4 +72,11 @@ public:
    /// Implement this to actually do the test
    /// @return The number of ticks that the run consumed
    [[nodiscard]] virtual uint64_t doRun() = 0;
+
+   /// Reset the runner and prepare for another run
+   [[maybe_unused]] virtual void reset() {
+      m_start_time = 0;
+      m_end_time = 0;
+   }
+
 };

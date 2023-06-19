@@ -7,7 +7,7 @@
       <x>280</x>
       <y>10</y>
       <w>200</w>
-      <h>260</h>
+      <h>270</h>
     </coordinates>
     <panel_attributes>/BaseRunner/
 --
@@ -23,6 +23,7 @@
 + start_benchmark()
 + end_benchmark()
 /+ doRun()/
++ reset()
 + getDescription()
 + setDescription()</panel_attributes>
     <additional_attributes/>
@@ -44,7 +45,8 @@
 # m_dest
 --
 + BufferRunner( buffer_size, guard_size )
-_- fillBufferWithRandomData()_</panel_attributes>
+_- fillBufferWithRandomData()_
++reset()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -69,12 +71,12 @@ _- fillBufferWithRandomData()_</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>260</y>
+      <y>270</y>
       <w>30</w>
-      <h>100</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -95,7 +97,7 @@ _- fillBufferWithRandomData()_</panel_attributes>
       <w>450</w>
       <h>210</h>
     </coordinates>
-    <panel_attributes>SetOfRuns
+    <panel_attributes>Series
 --
 # m_description
 # m_numberOfRuns

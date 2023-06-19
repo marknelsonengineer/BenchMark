@@ -45,4 +45,12 @@ public:
       fillBufferWithRandomData( m_guard, guard_size );
    };
 
+   /// Reset the runner and prepare for another run
+   [[maybe_unused]] void reset() override {
+      BaseRunner::reset();
+      fillBufferWithRandomData( m_src, m_buffer_size );
+      fillBufferWithRandomData( m_dest, m_buffer_size );
+      fillBufferWithRandomData( m_guard, m_guard_size );
+   }
+
 };
