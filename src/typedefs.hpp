@@ -26,3 +26,6 @@ using const_build_number_t = const uint32_t;
 
 /// A datetype that represents a number of bits.
 using log_2_t = unsigned char;
+
+/// A datatype that represents the number of CPU ticks (CPU Time Stamp Counter)
+using ticks_t = uint64_t;
