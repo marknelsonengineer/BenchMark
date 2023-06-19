@@ -30,7 +30,6 @@ SET( BUILDABLE True )  # Set to true by default, but it may get disabled
 
 IF( ${CMAKE_BUILD_TYPE} STREQUAL "Doxygen" )
    SET( BUILDABLE False )
-ELSEIF( ${CMAKE_BUILD_TYPE} STREQUAL "Debug" )
 ELSEIF( ${CMAKE_BUILD_TYPE} STREQUAL "Release" )
 ELSEIF( ${CMAKE_BUILD_TYPE} STREQUAL "MinSizeRel" )
 ELSEIF( ${CMAKE_BUILD_TYPE} STREQUAL "Clang" )
@@ -73,7 +72,6 @@ ELSEIF( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" )
 ENDIF()
 
 SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native -mtune=native -Ofast -funroll-loops -static -mfma" )
-SET( CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -march=x86-64 -mtune=generic -O0 -DDEBUG -fno-inline" )
 SET( CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_DEBUG} -march=native -mtune=native -Oz -mfma" )
 
 IF( ${CMAKE_BUILD_TYPE} STREQUAL "Doxygen" )
@@ -108,7 +106,7 @@ IF( ${BUILDABLE} )
       ADD_COMPILE_DEFINITIONS( BOOST_TEST_DYN_LINK )
    ENDIF()
 
-   ADD_LIBRARY( libBenchMark src/lib/BaseRunner.cpp src/lib/BaseRunner.hpp src/lib/BufferRunner.cpp src/lib/BufferRunner.hpp src/lib/LogRunner.cpp src/lib/LogRunner.hpp )
+   ADD_LIBRARY( libBenchMark src/lib/BaseRunner.cpp src/lib/BaseRunner.hpp src/lib/BufferRunner.cpp src/lib/BufferRunner.hpp src/lib/LogRunner.cpp src/lib/LogRunner.hpp src/lib/Test0_Nothing.cpp src/lib/Test0_Nothing.hpp )
 
    ADD_EXECUTABLE( BenchMark src/main_BenchMark.cpp src/version.hpp src/typedefs.hpp src/version.cpp )
    TARGET_LINK_LIBRARIES( BenchMark ${Boost_LIBRARIES} )
