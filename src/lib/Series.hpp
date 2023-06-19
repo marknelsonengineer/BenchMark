@@ -38,9 +38,29 @@ public:
    /// Execute this Series (running m_baseRunner m_numberOfRuns times)
    [[maybe_unused]] void doSeries();
 
+   /// Get the actual number of runs recorded
+   /// @return The actual number of runs recorded
+   [[maybe_unused]] [[nodiscard]] size_t getActualRuns() const;
+
+   /// Get the total number of ticks for each run
+   /// @return The total number of ticks from the CPU's Time Stamp Counter
+   [[maybe_unused]] [[nodiscard]] ticks_t getSum() const;
+
    /// Get the average number of ticks for each run
    /// @return The average number of ticks from the CPU's Time Stamp Counter
    [[maybe_unused]] [[nodiscard]] ticks_t getAverage() const;
+
+   /// Get the first standard deviation of ticks for this Series
+   /// @return The first standard deviation of ticks for this Series
+   [[maybe_unused]] [[nodiscard]] ticks_t getStandardDeviation() const;
+
+   /// Get the minimum number of ticks for this Series
+   /// @return The minimum number of ticks for this Series
+   [[maybe_unused]] [[nodiscard]] ticks_t getMin() const;
+
+   /// Get the maximum number of ticks for this Series
+   /// @return The maximum number of ticks for this Series
+   [[maybe_unused]] [[nodiscard]] ticks_t getMax() const;
 
    /// Get the formatted results of the Series
    /// @return A string with the formatted (human readable) results

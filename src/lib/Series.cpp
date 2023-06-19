@@ -10,6 +10,7 @@
 /// @author Mark Nelson <marknels@hawaii.edu>
 ///////////////////////////////////////////////////////////////////////////////
 
+#include <cmath>
 #include <format>
 
 #include "Series.hpp"
@@ -24,20 +25,70 @@ void Series::doSeries() {
 }
 
 
-[[maybe_unused]] [[nodiscard]] ticks_t Series::getAverage() const {
+[[maybe_unused]] [[nodiscard]] size_t Series::getActualRuns() const {
+   return m_results.size();
+}
+
+
+[[maybe_unused]] [[nodiscard]] ticks_t Series::getSum() const {
    ticks_t sum { 0 };
 
    for( auto i : m_results ) {
       sum += i;
    }
 
-   return sum / m_results.size();
+   return sum;
 }
 
 
-std::string Series::getResults() const {
-   return format( "{} runs of {} averages {} ticks", m_results.size(), m_description, getAverage() );
+[[maybe_unused]] [[nodiscard]] ticks_t Series::getAverage() const {
+   return getSum() / getActualRuns();
+}
+
+
+[[maybe_unused]] [[nodiscard]] std::string Series::getResults() const {
+   return format( "{} runs of {} averages {} ± {} ticks. Min/Max={}/{}", m_results.size(), m_description, getAverage(), getStandardDeviation(), getMin(), getMax() );
 
    //return std::format( "{} runs of {} averages {} +/- {} ticks", m_results.size(), m_description, getAverage(), 0.0 );
    // return std::string();
+}
+
+
+[[maybe_unused]] [[nodiscard]] ticks_t Series::getStandardDeviation() const {
+   const ticks_t mean = getAverage();
+
+   ticks_t sum_of_variances { 0 };
+
+   for( auto i : m_results ) {
+      sum_of_variances += (i - mean) * (i - mean);
+   }
+
+   const ticks_t variance = sum_of_variances / getActualRuns();
+
+   return (ticks_t) sqrtl( variance );;
+}
+
+
+[[maybe_unused]] [[nodiscard]] ticks_t Series::getMin() const {
+   ticks_t extreme { 0 };
+   extreme -= 1;  // This should get us to max value
+
+   for( auto i : m_results ) {
+      if( i < extreme ) {
+         extreme = i;
+      }
+   }
+   return extreme;
+}
+
+
+[[maybe_unused]] [[nodiscard]] ticks_t Series::getMax() const {
+   ticks_t extreme { 0 };
+
+   for( auto i : m_results ) {
+      if( i > extreme ) {
+         extreme = i;
+      }
+   }
+   return extreme;
 }
