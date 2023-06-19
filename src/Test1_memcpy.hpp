@@ -1,10 +1,8 @@
-// Copyright (c) 2023.  Mark Nelson.  All rights reserved.
-
 ///////////////////////////////////////////////////////////////////////////////
 //         University of Hawaii, College of Engineering
 //         BenchMark - EE 205 - Spr 2023
 //
-/// Lorem ipsum dolor sit amet
+/// BenchMark memcpy
 ///
 /// @file   Test1_memcpy.hpp
 /// @author Mark Nelson <marknels@hawaii.edu>
@@ -15,6 +13,7 @@
 
 #include "lib/LogRunner.hpp"
 
+/// BenchMark memcpy
 class [[maybe_unused]] Test1_memcpy : public LogRunner {
    uint64_t doRun() override {
 
