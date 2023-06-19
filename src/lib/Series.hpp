@@ -11,8 +11,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+#include <list>
 #include <string>
-#include <vector>
 
 #include "BaseRunner.hpp"
 
@@ -23,7 +23,7 @@ private:
    size_t m_numberOfPreRuns;   ///< The number of runs before starting timed runs
    size_t m_numberOfRuns;      ///< The number of runs requested for this Series
    BaseRunner& m_baseRunner;   ///< The BaseRunner for this Series
-   std::vector<ticks_t> m_results;  ///< The results (if any) of this Series
+   std::list<ticks_t> m_results;  ///< The results (if any) of this Series
 
 public:
    /// Create a new Series
