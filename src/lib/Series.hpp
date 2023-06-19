@@ -20,6 +20,7 @@
 class [[maybe_unused]] Series {
 private:
    std::string m_description;  ///< The description of this Series
+   size_t m_numberOfPreRuns;   ///< The number of runs before starting timed runs
    size_t m_numberOfRuns;      ///< The number of runs requested for this Series
    BaseRunner& m_baseRunner;   ///< The BaseRunner for this Series
    std::vector<ticks_t> m_results;  ///< The results (if any) of this Series
@@ -27,13 +28,23 @@ private:
 public:
    /// Create a new Series
    /// @param newDescription A description of this Series
+   /// @param newNumberOfPreRuns The number of runs before starting timed runs
+   /// @param newNumberOfRuns The number of runs for this Series
+   /// @param newBaseRunner The runner for this Series
+   [[maybe_unused]] Series( const std::string_view& newDescription, size_t newNumberOfPreRuns, size_t newNumberOfRuns, BaseRunner& newBaseRunner )
+         : m_description( newDescription )
+         , m_numberOfPreRuns( newNumberOfPreRuns )
+         , m_numberOfRuns( newNumberOfRuns )
+         , m_baseRunner( newBaseRunner )
+   {};
+
+   /// Create a new Series
+   /// @param newDescription A description of this Series
    /// @param newNumberOfRuns The number of runs for this Series
    /// @param newBaseRunner The runner for this Series
    [[maybe_unused]] Series( const std::string_view& newDescription, size_t newNumberOfRuns, BaseRunner& newBaseRunner )
-         : m_description( newDescription )
-         , m_numberOfRuns( newNumberOfRuns )
-         , m_baseRunner( newBaseRunner )
-         {};
+         : Series( newDescription, 0, newNumberOfRuns, newBaseRunner )
+   {};
 
    /// Execute this Series (running m_baseRunner m_numberOfRuns times)
    [[maybe_unused]] void doSeries();

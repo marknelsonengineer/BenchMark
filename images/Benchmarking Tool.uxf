@@ -92,10 +92,10 @@ _- fillBufferWithRandomData()_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>640</x>
+      <x>620</x>
       <y>60</y>
-      <w>450</w>
-      <h>210</h>
+      <w>570</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes>Series
 --
@@ -104,19 +104,22 @@ _- fillBufferWithRandomData()_
 # m_BaseRunner
 # vector&lt;&gt; m_results
 --
-SetOfRuns( BaseRunner, numberOfRuns, description )
-doSet()
+Series( BaseRunner, numberOfPreRuns, numberOfRuns, description )
+Series( BaseRunner, numberOfRuns, description )
+doSeries()
+getAcutalRuns()
+getSum()
 getMin()
 getMax()
 getAverage()
-getDeviation()</panel_attributes>
+getStandardDeviation()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>660</x>
-      <y>340</y>
+      <y>410</y>
       <w>390</w>
       <h>140</h>
     </coordinates>
