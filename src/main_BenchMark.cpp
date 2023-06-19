@@ -16,6 +16,11 @@
 
 using namespace std;
 
+
+/// The default number of runs for this BenchMark
+constinit const size_t NUM_RUNS { 64 };
+
+
 /// A BenchMark master runner
 ///
 /// @return Zero
@@ -24,7 +29,7 @@ int main() {
 
    Test0_Nothing baselineRunner;
 
-   Series baseline_series { Series( "Baseline Test", 4, 64, baselineRunner ) };
+   Series baseline_series { Series( "Baseline Test", 4, NUM_RUNS, baselineRunner ) };
    baseline_series.doSeries();
 
    cout << baseline_series.getResults();

@@ -19,7 +19,7 @@ using namespace std;
 
 void Series::doSeries() {
    for( size_t i = 0 ; i < m_numberOfPreRuns ; i++ ) {
-      m_baseRunner.doRun();
+      (void) m_baseRunner.doRun();
    }
 
    for( size_t i = 0 ; i < m_numberOfRuns ; i++ ) {
@@ -51,7 +51,7 @@ void Series::doSeries() {
 
 
 [[maybe_unused]] [[nodiscard]] std::string Series::getResults() const {
-   return format( "{} runs of {} averages {} ± {} ticks. Min/Max={}/{}", m_results.size(), m_description, getAverage(), getStandardDeviation(), getMin(), getMax() );
+   return format( "{} runs of {} averages {} +/- {} ticks. Min/Max={}/{}", m_results.size(), m_description, getAverage(), getStandardDeviation(), getMin(), getMax() );
 
    //return std::format( "{} runs of {} averages {} +/- {} ticks", m_results.size(), m_description, getAverage(), 0.0 );
    // return std::string();
