@@ -4,22 +4,25 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
-      <y>50</y>
+      <x>280</x>
+      <y>10</y>
       <w>200</w>
-      <h>190</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes>/BaseRunner/
 --
 - m_overhead
 # m_start_time
 # m_end_time
+# m_description
 --
 # setOverhead()
 # getOverhead()
 # getDuration()
 + ~BaseRunner()
-/+ doRun()/</panel_attributes>
+/+ doRun()/
++ getDescription()
++ setDescription()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -45,9 +48,9 @@ _- fillBufferWithRandomData()_</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>180</x>
+      <x>150</x>
       <y>550</y>
-      <w>200</w>
+      <w>450</w>
       <h>120</h>
     </coordinates>
     <panel_attributes>/LogRunner/
@@ -63,7 +66,7 @@ _- fillBufferWithRandomData()_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
+      <x>360</x>
       <y>230</y>
       <w>30</w>
       <h>90</h>
@@ -74,12 +77,53 @@ _- fillBufferWithRandomData()_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
+      <x>360</x>
       <y>470</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>60</y>
+      <w>450</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>SetOfRuns
+--
+# m_description
+# m_numberOfRuns
+# m_BaseRunner
+# vector&lt;&gt; m_results
+--
+SetOfRuns( BaseRunner, numberOfRuns, description )
+doSet()
+getMin()
+getMax()
+getAverage()
+getDeviation()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>340</y>
+      <w>390</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Study
+--
+One BaseRunner
+Averaged over many runs
+over a set of test data of various sizes
+--
+doStudy()
+printResults()</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>
