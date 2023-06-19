@@ -9,12 +9,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 #pragma once
 
+#include "../typedefs.hpp"
+
+#include <format>
 #include <iostream>
+#include <list>
 #include <string_view>
 #include <type_traits>
 
 #include "LogRunner.hpp"
-#include "../typedefs.hpp"
 #include "Series.hpp"
 
 /// Requre that newLogRunner in LogStudy be derived from LogRunner
@@ -31,6 +34,8 @@ protected:
    ticks_t m_overhead { 0 };   ///< An optional overhead time that can be deducted from the results
    size_t m_numPreRuns { 0 };  ///< The number of runs before starting timed runs
    size_t m_numRuns { 0 };     ///< The number of runs requested for this Series
+
+   std::list<Series> theStudy;  ///< Hold each Series of the Study
 
 public:
    /// Create a LogStudy object
@@ -93,16 +98,24 @@ public:
    /// Do the study
    [[maybe_unused]] void doStudy() {
       for( log_2_t i = min_bits ; i <= max_bits ; i++ ) {
-         logRunnerClass logRunner( i, i, m_description );
+         std::string description { std::format( "{} where n={}", m_description, 1U << i ) };
+         logRunnerClass logRunner( i, i, description );
+         logRunner.setOverhead( m_overhead );
 
-         Series aSeries( "m_description", 4, 64, logRunner );
+         Series aSeries( description, m_numPreRuns, m_numRuns, logRunner );
          aSeries.doSeries();
+
+         theStudy.push_back( aSeries );
       }
    }
 
 
    /// Print results
    [[maybe_unused]] void printResults() {
+      for( const auto& series : theStudy ) {
+         std::cout << series.getResults();
+         std::cout << std::endl;
+      }
    }
 
 };

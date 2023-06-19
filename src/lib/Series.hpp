@@ -76,4 +76,5 @@ public:
    /// Get the formatted results of the Series
    /// @return A string with the formatted (human readable) results
    [[maybe_unused]] [[nodiscard]] std::string getResults() const;
+
 };

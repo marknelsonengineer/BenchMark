@@ -21,7 +21,7 @@ BOOST_AUTO_TEST_SUITE( Version )
 
 /// Test the version numbers
 BOOST_AUTO_TEST_CASE( Version_general ) {
-   BOOST_CHECK_EQUAL( VERSION_MAJOR, 5 );
+   BOOST_CHECK_EQUAL( VERSION_MAJOR, 2 );
 
    BOOST_CHECK_EQUAL( FULL_VERSION, std::format( "{}.{}.{}+{}", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH
                                                  , VERSION_BUILD ) );

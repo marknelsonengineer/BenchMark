@@ -40,19 +40,7 @@ int main() {
    Series baseline_series { Series( "Baseline Test", 4, NUM_RUNS, baselineRunner ) };
    baseline_series.doSeries();
 
-   cout << baseline_series.getResults();
-
-   for( log_2_t i = MIN_BITS ; i <= MAX_BITS ; i++ ) {
-      Test1_memcpy test1_memcpy( i, i, "memcopy" );
-      test1_memcpy.setOverhead( baseline_series.getMin() );
-
-      Series memcopy_series( "memcopy", 4, NUM_RUNS, test1_memcpy );
-      memcopy_series.doSeries();
-
-      cout << "n=" << test1_memcpy.getBufferSize();
-      cout << ": " << memcopy_series.getResults();
-      cout << endl;
-   }
+   cout << baseline_series.getResults() << endl;
 
    LogStudy<Test1_memcpy> memcpyStudy( "memcpy", MIN_BITS, MAX_BITS );
    memcpyStudy.setOverhead( baseline_series.getMin() );
