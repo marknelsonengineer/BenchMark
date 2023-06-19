@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "Test1_memcpy.hpp"
+#include "lib/LogStudy.hpp"
 #include "lib/Series.hpp"
 #include "lib/Test0_Nothing.hpp"
 #include "version.hpp"
@@ -52,6 +53,13 @@ int main() {
       cout << ": " << memcopy_series.getResults();
       cout << endl;
    }
+
+   LogStudy<Test1_memcpy> memcpyStudy( "memcpy", MIN_BITS, MAX_BITS );
+   memcpyStudy.setOverhead( baseline_series.getMin() );
+   memcpyStudy.setNumPreRuns( 4 );
+   memcpyStudy.setNumRuns( NUM_RUNS );
+   memcpyStudy.doStudy();
+   memcpyStudy.printResults();
 
    return 0;
 }
