@@ -1,0 +1,10 @@
+///////////////////////////////////////////////////////////////////////////////
+//         University of Hawaii, College of Engineering
+//         BenchMark - EE 205 - Spr 2023
+//
+/// Base class for methods under test
+///
+/// @file   BaseRunner.cpp
+/// @author Mark Nelson <marknels@hawaii.edu>
+///////////////////////////////////////////////////////////////////////////////
+#include "BaseRunner.hpp"

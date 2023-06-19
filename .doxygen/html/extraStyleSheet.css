@@ -1,0 +1,59 @@
+/* ///////////////////////////////////////////////////////////////////////////
+//  BenchMark - Quality is free, but only if you are willing to pay for it
+//
+/// Custom style sheet for Doxygen documentation
+///
+/// @file      extraStyleSheet.css
+/// @author    Mark Nelson <marknels@hawaii.edu>
+/// @copyright (c) 2021 Mark Nelson.  All rights reserved.
+/////////////////////////////////////////////////////////////////////////// */
+
+code {
+    color: green;
+}
+
+/* A gold on dark color scheme reminiscent of old terminals    */
+/* This is used by indenting 4 spaces                          */
+pre.fragment {
+    color:            #FFD00D;  /* Gold                        */
+    background-color: #24160A   /* Black with a gold glow      */
+}
+
+/* A green on white color scheme, more like a printed document */
+/* This is used with the ```` tag                              */
+div.fragment {
+    color:            #00FD00;  /* Green                       */
+    background-color: #0D1912   /* Black with a green glow     */
+}
+
+span.comment {
+    color: green;
+}
+
+span.preprocessor {
+    color: dimgray;
+}
+
+span.keywordflow {
+    color: darkorange;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+/* Format the @API xrefitem Alias */
+p.startdd {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+p.interdd {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+p.enddd {
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
