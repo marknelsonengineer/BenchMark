@@ -14,7 +14,7 @@
 #include "BaseRunner.hpp"
 
 /// Support a run with a source, destination and a guard buffer
-class BufferRunner : public BaseRunner {
+class [[maybe_unused]] BufferRunner : public BaseRunner {
 private:
    std::size_t m_buffer_size;  ///< The size in bytes of the source and destination buffers
    std::size_t m_guard_size;   ///< The size in bytes of the guard buffer
