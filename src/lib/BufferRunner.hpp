@@ -15,8 +15,10 @@
 
 /// Support a run with a source, destination and a guard buffer
 class [[maybe_unused]] BufferRunner : public BaseRunner {
-private:
+protected:
    std::size_t m_buffer_size;  ///< The size in bytes of the source and destination buffers
+
+private:
    std::size_t m_guard_size;   ///< The size in bytes of the guard buffer
 
    /// Fill a buffer with random data
@@ -24,8 +26,8 @@ private:
    /// @param size The number of bytes to fill
    static void fillBufferWithRandomData( const void* buffer, std::size_t size );
 
-protected:
 public:
+   /// Destructor for BufferRunner
    ~BufferRunner() override {
       if( m_src != nullptr ) {
          free( m_src );

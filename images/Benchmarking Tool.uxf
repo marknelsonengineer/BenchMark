@@ -95,14 +95,15 @@ _- fillBufferWithRandomData()_
       <x>620</x>
       <y>60</y>
       <w>570</w>
-      <h>270</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>Series
 --
 # m_description
+# m_numberOfPreRuns
 # m_numberOfRuns
 # m_BaseRunner
-# vector&lt;&gt; m_results
+# list&lt;&gt; m_results
 --
 Series( BaseRunner, numberOfPreRuns, numberOfRuns, description )
 Series( BaseRunner, numberOfRuns, description )
@@ -112,14 +113,15 @@ getSum()
 getMin()
 getMax()
 getAverage()
-getStandardDeviation()</panel_attributes>
+getStandardDeviation()
+getResults()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>660</x>
-      <y>410</y>
+      <x>690</x>
+      <y>440</y>
       <w>390</w>
       <h>140</h>
     </coordinates>
