@@ -12,6 +12,7 @@
 
 #include <cmath>
 #include <format>
+#include <sched.h>
 
 #include "Series.hpp"
 
@@ -25,6 +26,7 @@ void Series::doSeries() {
 
    for( size_t i = 0 ; i < m_numberOfRuns ; i++ ) {
       m_baseRunner.reset();
+      sched_yield();
       const ticks_t ticks = m_baseRunner.doRun();
       m_results.push_back( ticks );
    }
