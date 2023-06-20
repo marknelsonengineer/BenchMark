@@ -13,6 +13,7 @@
 #include "Test1_memcpy.hpp"
 #include "Test2_memset.hpp"
 #include "Test3_stosq.hpp"
+#include "Test4_movsq.hpp"
 #include "lib/LogStudy.hpp"
 #include "lib/Series.hpp"
 #include "lib/Test0_Nothing.hpp"
@@ -44,7 +45,7 @@ int main() {
    baseline_series.doSeries();
 
    cout << baseline_series.getResults() << endl;
-/*
+
    {
       LogStudy<Test1_memcpy> memStudy( "memcpy", MIN_BITS, MAX_BITS );
       memStudy.setOverhead( baseline_series.getMin() );
@@ -64,9 +65,19 @@ int main() {
       memStudy.printResults();
       memStudy.printCSV();
    }
-*/
+
    {
       LogStudy<Test3_stosq> memStudy( "stosq", MIN_BITS, MAX_BITS );
+      memStudy.setOverhead( baseline_series.getMin() );
+      memStudy.setNumPreRuns( 4 );
+      memStudy.setNumRuns( NUM_RUNS );
+      memStudy.doStudy();
+      memStudy.printResults();
+      memStudy.printCSV();
+   }
+
+   {
+      LogStudy<Test4_movsq> memStudy( "movsq", MIN_BITS, MAX_BITS );
       memStudy.setOverhead( baseline_series.getMin() );
       memStudy.setNumPreRuns( 4 );
       memStudy.setNumRuns( NUM_RUNS );
