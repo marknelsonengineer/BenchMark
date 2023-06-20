@@ -102,7 +102,7 @@ public:
          logRunnerClass logRunner( i, i, description );
          logRunner.setOverhead( m_overhead );
 
-         Series aSeries( description, m_numPreRuns, m_numRuns, logRunner );
+         Series aSeries( m_description, m_numPreRuns, m_numRuns, 1U << i, logRunner );
          aSeries.doSeries();
 
          theStudy.push_back( aSeries );

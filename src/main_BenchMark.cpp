@@ -41,7 +41,7 @@ int main() {
 
    Test0_Nothing baselineRunner;
 
-   Series baseline_series { Series( "Baseline Test", 4, NUM_RUNS, baselineRunner ) };
+   Series baseline_series { Series( "Baseline Test", 4, NUM_RUNS, 0, baselineRunner ) };
    baseline_series.doSeries();
 
    cout << baseline_series.getResults() << endl;

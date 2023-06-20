@@ -22,6 +22,7 @@ private:
    std::string m_description;  ///< The description of this Series
    size_t m_numberOfPreRuns;   ///< The number of runs before starting timed runs
    size_t m_numberOfRuns;      ///< The number of runs requested for this Series
+   size_t m_n;                 ///< The size of the dataset (`n`) to be tested
    BaseRunner& m_baseRunner;   ///< The BaseRunner for this Series
    std::list<ticks_t> m_results;  ///< The results (if any) of this Series
 
@@ -31,19 +32,17 @@ public:
    /// @param newNumberOfPreRuns The number of runs before starting timed runs
    /// @param newNumberOfRuns The number of runs for this Series
    /// @param newBaseRunner The runner for this Series
-   [[maybe_unused]] Series( const std::string_view& newDescription, size_t newNumberOfPreRuns, size_t newNumberOfRuns, BaseRunner& newBaseRunner )
+   [[maybe_unused]] Series(
+         const std::string_view& newDescription
+         , size_t newNumberOfPreRuns
+         , size_t newNumberOfRuns
+         , size_t newN
+         , BaseRunner& newBaseRunner )
          : m_description( newDescription )
          , m_numberOfPreRuns( newNumberOfPreRuns )
          , m_numberOfRuns( newNumberOfRuns )
+         , m_n( newN )
          , m_baseRunner( newBaseRunner )
-   {};
-
-   /// Create a new Series
-   /// @param newDescription A description of this Series
-   /// @param newNumberOfRuns The number of runs for this Series
-   /// @param newBaseRunner The runner for this Series
-   [[maybe_unused]] Series( const std::string_view& newDescription, size_t newNumberOfRuns, BaseRunner& newBaseRunner )
-         : Series( newDescription, 0, newNumberOfRuns, newBaseRunner )
    {};
 
    /// Execute this Series (running m_baseRunner m_numberOfRuns times)
@@ -84,6 +83,5 @@ public:
    /// Get the heading for the Series as a CSV dataset
    /// @return A string with the heading for the Series as a CSV dataset
    [[maybe_unused]] [[nodiscard]] static std::string getCSVheading() ;
-
 
 };
