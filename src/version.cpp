@@ -21,9 +21,9 @@
 [[maybe_unused]] alignas( int ) const_version_number_t VERSION_MAJOR { 2 };
 [[maybe_unused]] alignas( int ) const_version_number_t VERSION_MINOR { 0 };
 [[maybe_unused]] alignas( int ) const_version_number_t VERSION_PATCH { 0 };
-[[maybe_unused]] alignas( int ) const_build_number_t VERSION_BUILD { 167 };
+[[maybe_unused]] alignas( int ) const_build_number_t VERSION_BUILD { 170 };
 
-[[maybe_unused]] alignas( const std::string ) constinit const std::string FULL_VERSION { "2.0.0+167" };
+[[maybe_unused]] alignas( const std::string ) constinit const std::string FULL_VERSION { "2.0.0+170" };
 
 [[maybe_unused]] alignas( const std::string ) const std::string LEGAL_NOTICE {
    "Copyright (c) 2023 Mark Nelson.  All rights reserved.\n"

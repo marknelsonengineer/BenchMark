@@ -19,11 +19,11 @@
 /// Track a series of identical runs
 class [[maybe_unused]] Series {
 private:
-   std::string m_description;  ///< The description of this Series
-   size_t m_numberOfPreRuns;   ///< The number of runs before starting timed runs
-   size_t m_numberOfRuns;      ///< The number of runs requested for this Series
-   size_t m_n;                 ///< The size of the dataset (`n`) to be tested
-   BaseRunner& m_baseRunner;   ///< The BaseRunner for this Series
+   std::string m_description;     ///< The description of this Series
+   size_t m_numberOfPreRuns;      ///< The number of runs before starting timed runs
+   size_t m_numberOfRuns;         ///< The number of runs requested for this Series
+   size_t m_n;                    ///< The size of the dataset (`n`) to be tested
+   BaseRunner& m_baseRunner;      ///< The BaseRunner for this Series
    std::list<ticks_t> m_results;  ///< The results (if any) of this Series
 
 public:
@@ -31,6 +31,7 @@ public:
    /// @param newDescription A description of this Series
    /// @param newNumberOfPreRuns The number of runs before starting timed runs
    /// @param newNumberOfRuns The number of runs for this Series
+   /// @param newN The size of the dataset in terms of _Big O(n)_
    /// @param newBaseRunner The runner for this Series
    [[maybe_unused]] Series(
          const std::string_view& newDescription
