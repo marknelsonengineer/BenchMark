@@ -34,6 +34,7 @@ constinit const log_2_t MAX_BITS { 16 };
 /// A BenchMark master runner
 ///
 /// @return Zero
+/// @NOLINTNEXTLINE( bugprone-exception-escape ): Sometimes main may catch an exception
 int main() {
    cout << PROGRAM_TITLE << " version " << FULL_VERSION << endl;
 

@@ -36,6 +36,7 @@ Checks: >
   -cppcoreguidelines-special-member-functions,
   -hicpp-special-member-functions,
   -cppcoreguidelines-owning-memory,
+  -hicpp-no-assembler,
   -abseil-*,
   -altera-*,
   -bugprone-easily-swappable-parameters,

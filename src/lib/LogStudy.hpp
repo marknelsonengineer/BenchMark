@@ -98,7 +98,7 @@ public:
    /// Do the study
    [[maybe_unused]] void doStudy() {
       for( log_2_t i = min_bits ; i <= max_bits ; i++ ) {
-         std::string description { std::format( "{} where n={}", m_description, 1U << i ) };
+         const std::string description { std::format( "{} where n={}", m_description, 1U << i ) };
          logRunnerClass logRunner( i, i, description );
          logRunner.setOverhead( m_overhead );
 
