@@ -11,9 +11,10 @@
 #include <iostream>
 
 #include "Test1_memcpy.hpp"
-#include "Test2_memset.hpp"
-#include "Test3_stosq.hpp"
-#include "Test4_movsq.hpp"
+#include "Test2_movsq.hpp"
+#include "Test3_memset.hpp"
+#include "Test4_stosq.hpp"
+
 #include "lib/LogStudy.hpp"
 #include "lib/Series.hpp"
 #include "lib/Test0_Nothing.hpp"
@@ -23,7 +24,7 @@ using namespace std;
 
 
 /// The default number of runs for this BenchMark
-constinit const size_t NUM_RUNS { 1024 };
+constinit const size_t NUM_RUNS { 128 };
 
 /// The min number of bits we will test
 constinit const log_2_t MIN_BITS { 3 };
@@ -44,7 +45,7 @@ int main() {
    Series baseline_series { Series( "Baseline Test", 4, NUM_RUNS, 0, baselineRunner ) };
    baseline_series.doSeries();
 
-   cout << baseline_series.getResults() << endl;
+   // cout << baseline_series.getResults() << endl;
 
    {
       LogStudy<Test1_memcpy> memStudy( "memcpy", MIN_BITS, MAX_BITS );
@@ -52,37 +53,37 @@ int main() {
       memStudy.setNumPreRuns( 4 );
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
-      memStudy.printResults();
+//    memStudy.printResults();
       memStudy.printCSV();
    }
 
    {
-      LogStudy<Test2_memset> memStudy( "memset", MIN_BITS, MAX_BITS );
+      LogStudy<Test2_movsq> memStudy( "movsq", MIN_BITS, MAX_BITS );
       memStudy.setOverhead( baseline_series.getMin() );
       memStudy.setNumPreRuns( 4 );
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
-      memStudy.printResults();
+//    memStudy.printResults();
       memStudy.printCSV();
    }
 
    {
-      LogStudy<Test3_stosq> memStudy( "stosq", MIN_BITS, MAX_BITS );
+      LogStudy<Test3_memset> memStudy( "memset", MIN_BITS, MAX_BITS );
       memStudy.setOverhead( baseline_series.getMin() );
       memStudy.setNumPreRuns( 4 );
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
-      memStudy.printResults();
+//    memStudy.printResults();
       memStudy.printCSV();
    }
 
    {
-      LogStudy<Test4_movsq> memStudy( "movsq", MIN_BITS, MAX_BITS );
+      LogStudy<Test4_stosq> memStudy( "stosq", MIN_BITS, MAX_BITS );
       memStudy.setOverhead( baseline_series.getMin() );
       memStudy.setNumPreRuns( 4 );
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
-      memStudy.printResults();
+//    memStudy.printResults();
       memStudy.printCSV();
    }
 
