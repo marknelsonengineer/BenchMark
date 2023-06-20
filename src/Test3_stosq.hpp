@@ -36,14 +36,12 @@ public:
 
       start_benchmark();
 
-      asm( ".intel_syntax noprefix;"
-           "xor rax, rax;"          // Zero out RAX
+      asm( "xor rax, rax;"          // Zero out RAX
            "cld;"                   // Clear the Direction Flag
            "mov rdi, %[m_dest];"    // Load m_dest into RDI
            "mov rcx, %[size];"      // Load m_buffer_size into RCX
            "shr rcx, 3;"            // Divide RCX by 8
            "rep stosq;"             // Store 8 bytes from RAX to [RDI].  RDI += 8.
-           ".att_syntax prefix;"
             :  // Output
             :  [m_dest] "r" (m_dest) // Input
             ,  [size] "r" (m_buffer_size)

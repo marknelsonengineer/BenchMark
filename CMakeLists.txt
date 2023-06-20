@@ -65,10 +65,10 @@ ADD_COMPILE_OPTIONS( -Wall -Wextra )
 
 IF( ${CMAKE_COMPILER_IS_GNUCXX} )
    MESSAGE( STATUS "Compile with g++" )
-   ADD_COMPILE_OPTIONS( -lstdc++ -fuse-ld=gold )
+   ADD_COMPILE_OPTIONS( -lstdc++ -fuse-ld=gold -masm=intel )
 ELSEIF( "${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" )
    MESSAGE( STATUS "Compile with clang++" )
-   ADD_COMPILE_OPTIONS( -march=native )
+   ADD_COMPILE_OPTIONS( -march=native -masm=intel )
 ENDIF()
 
 SET( CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native -mtune=native -Ofast -funroll-loops -static -mfma" )
