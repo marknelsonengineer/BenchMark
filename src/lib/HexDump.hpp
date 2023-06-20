@@ -14,4 +14,4 @@
 /// Dump a block of hex to the console
 /// @param ptr    The starting address to dump
 /// @param buflen The lenght of data to dump
-[[maybe_unused]] extern void hexdump(void *ptr, int buflen);
+[[maybe_unused]] extern void hexdump(void *ptr, size_t buflen);
