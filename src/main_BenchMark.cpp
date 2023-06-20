@@ -52,6 +52,7 @@ int main() {
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
       memStudy.printResults();
+      memStudy.printCSV();
    }
 
    {
@@ -61,6 +62,7 @@ int main() {
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
       memStudy.printResults();
+      memStudy.printCSV();
    }
 */
    {
@@ -70,6 +72,7 @@ int main() {
       memStudy.setNumRuns( NUM_RUNS );
       memStudy.doStudy();
       memStudy.printResults();
+      memStudy.printCSV();
    }
 
    return 0;

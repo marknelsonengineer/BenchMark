@@ -110,11 +110,18 @@ public:
    }
 
 
-   /// Print results
+   /// Print the (human readable) formatted results of the Study
    [[maybe_unused]] void printResults() {
       for( const auto& series : theStudy ) {
-         std::cout << series.getResults();
-         std::cout << std::endl;
+         std::cout << series.getResults() << std::endl;
+      }
+   }
+
+   /// Print the results of the Series as a CSV dataset
+   [[maybe_unused]] void printCSV() {
+      std::cout << theStudy.begin()->getCSVheading() << std::endl;
+      for( const auto& series : theStudy ) {
+         std::cout << series.getCSV() << std::endl;
       }
    }
 

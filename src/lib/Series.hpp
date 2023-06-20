@@ -73,8 +73,17 @@ public:
    /// @return The maximum number of ticks for this Series
    [[maybe_unused]] [[nodiscard]] ticks_t getMax() const;
 
-   /// Get the formatted results of the Series
+   /// Get the (human readable) formatted results of the Series
    /// @return A string with the formatted (human readable) results
    [[maybe_unused]] [[nodiscard]] std::string getResults() const;
+
+   /// Get the results of the Series as a CSV dataset
+   /// @return A string with the data as a CSV dataset
+   [[maybe_unused]] [[nodiscard]] std::string getCSV() const;
+
+   /// Get the heading for the Series as a CSV dataset
+   /// @return A string with the heading for the Series as a CSV dataset
+   [[maybe_unused]] [[nodiscard]] static std::string getCSVheading() ;
+
 
 };

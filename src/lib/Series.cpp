@@ -54,9 +54,16 @@ void Series::doSeries() {
 
 [[maybe_unused]] [[nodiscard]] std::string Series::getResults() const {
    return format( "{} runs of {} averages {} ± {} ticks. Min/Max={}/{}", m_results.size(), m_description, getAverage(), getStandardDeviation(), getMin(), getMax() );
+}
 
-   //return std::format( "{} runs of {} averages {} +/- {} ticks", m_results.size(), m_description, getAverage(), 0.0 );
-   // return std::string();
+
+[[maybe_unused]] [[nodiscard]] std::string Series::getCSVheading() {
+   return format( "{}:{}:{}:{}:{}:{}", "average", "deviation", "min", "max", "runs", "description" );
+}
+
+
+[[maybe_unused]] [[nodiscard]] std::string Series::getCSV() const {
+   return format( "{}:{}:{}:{}:{}:{}", getAverage(), getStandardDeviation(), getMin(), getMax(), m_results.size(), m_description );
 }
 
 
