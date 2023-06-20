@@ -106,9 +106,9 @@ IF( ${BUILDABLE} )
       ADD_COMPILE_DEFINITIONS( BOOST_TEST_DYN_LINK )
    ENDIF()
 
-   ADD_LIBRARY( libBenchMark src/lib/BaseRunner.hpp src/lib/BufferRunner.cpp src/lib/BufferRunner.hpp src/lib/LogRunner.hpp src/lib/Test0_Nothing.hpp src/lib/Series.cpp src/lib/Series.hpp src/lib/LogStudy.hpp )
+   ADD_LIBRARY( libBenchMark src/lib/BaseRunner.hpp src/lib/BufferRunner.cpp src/lib/BufferRunner.hpp src/lib/LogRunner.hpp src/lib/Test0_Nothing.hpp src/lib/Series.cpp src/lib/Series.hpp src/lib/LogStudy.hpp src/lib/HexDump.cpp src/lib/HexDump.hpp )
 
-   ADD_EXECUTABLE( BenchMark src/main_BenchMark.cpp src/version.hpp src/typedefs.hpp src/version.cpp src/Test1_memcpy.hpp src/Test2_memset.hpp )
+   ADD_EXECUTABLE( BenchMark src/main_BenchMark.cpp src/version.hpp src/typedefs.hpp src/version.cpp src/Test1_memcpy.hpp src/Test2_memset.hpp src/Test3_stosq.hpp )
    TARGET_LINK_LIBRARIES( BenchMark ${Boost_LIBRARIES} )
    TARGET_LINK_LIBRARIES( BenchMark libBenchMark )
 

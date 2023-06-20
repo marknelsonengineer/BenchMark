@@ -75,6 +75,7 @@
       <w>newcommand</w>
       <w>noenv</w>
       <w>nolintbegin</w>
+      <w>nolintend</w>
       <w>nosubgrouping</w>
       <w>nowide</w>
       <w>nspaces</w>
