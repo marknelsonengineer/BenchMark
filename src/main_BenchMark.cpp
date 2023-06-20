@@ -12,6 +12,7 @@
 
 #include "Test1_memcpy.hpp"
 #include "Test2_memset.hpp"
+#include "Test3_stosq.hpp"
 #include "lib/LogStudy.hpp"
 #include "lib/Series.hpp"
 #include "lib/Test0_Nothing.hpp"
@@ -21,7 +22,7 @@ using namespace std;
 
 
 /// The default number of runs for this BenchMark
-constinit const size_t NUM_RUNS { 64 };
+constinit const size_t NUM_RUNS { 1024 };
 
 /// The min number of bits we will test
 constinit const log_2_t MIN_BITS { 3 };
@@ -42,20 +43,33 @@ int main() {
    baseline_series.doSeries();
 
    cout << baseline_series.getResults() << endl;
+/*
+   {
+      LogStudy<Test1_memcpy> memStudy( "memcpy", MIN_BITS, MAX_BITS );
+      memStudy.setOverhead( baseline_series.getMin() );
+      memStudy.setNumPreRuns( 4 );
+      memStudy.setNumRuns( NUM_RUNS );
+      memStudy.doStudy();
+      memStudy.printResults();
+   }
 
-   LogStudy<Test1_memcpy> memcpyStudy( "memcpy", MIN_BITS, MAX_BITS );
-   memcpyStudy.setOverhead( baseline_series.getMin() );
-   memcpyStudy.setNumPreRuns( 4 );
-   memcpyStudy.setNumRuns( NUM_RUNS );
-   memcpyStudy.doStudy();
-   memcpyStudy.printResults();
-
-   LogStudy<Test2_memset> memsetStudy( "memset", MIN_BITS, MAX_BITS );
-   memsetStudy.setOverhead( baseline_series.getMin() );
-   memsetStudy.setNumPreRuns( 4 );
-   memsetStudy.setNumRuns( NUM_RUNS );
-   memsetStudy.doStudy();
-   memsetStudy.printResults();
+   {
+      LogStudy<Test2_memset> memStudy( "memset", MIN_BITS, MAX_BITS );
+      memStudy.setOverhead( baseline_series.getMin() );
+      memStudy.setNumPreRuns( 4 );
+      memStudy.setNumRuns( NUM_RUNS );
+      memStudy.doStudy();
+      memStudy.printResults();
+   }
+*/
+   {
+      LogStudy<Test3_stosq> memStudy( "stosq", MIN_BITS, MAX_BITS );
+      memStudy.setOverhead( baseline_series.getMin() );
+      memStudy.setNumPreRuns( 4 );
+      memStudy.setNumRuns( NUM_RUNS );
+      memStudy.doStudy();
+      memStudy.printResults();
+   }
 
    return 0;
 }
