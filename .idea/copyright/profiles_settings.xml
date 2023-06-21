@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="BenchMark" />
+  <settings>
+    <module2copyright>
+      <element module="All" copyright="BenchMark" />
+    </module2copyright>
+  </settings>
 </component>
