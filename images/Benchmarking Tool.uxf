@@ -16,8 +16,8 @@
 # m_end_time
 # m_description
 --
-# setOverhead()
-# getOverhead()
++ setOverhead()
++ getOverhead()
 # getDuration()
 + ~BaseRunner()
 + start_benchmark()
@@ -31,10 +31,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>190</x>
+      <x>80</x>
       <y>340</y>
-      <w>370</w>
-      <h>180</h>
+      <w>480</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>/BufferRunner/
 --
@@ -44,9 +44,10 @@
 # m_guard
 # m_dest
 --
-+ BufferRunner( buffer_size, guard_size )
++ BufferRunner( buffer_size, guard_size, description )
 _- fillBufferWithRandomData()_
-+reset()</panel_attributes>
++reset()
++ getBufferSize()</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -82,12 +83,12 @@ _- fillBufferWithRandomData()_
     <id>Relation</id>
     <coordinates>
       <x>360</x>
-      <y>510</y>
+      <y>530</y>
       <w>30</w>
-      <h>120</h>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
