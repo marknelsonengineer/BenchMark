@@ -30,6 +30,13 @@ void Series::doSeries() {
       const ticks_t ticks = m_baseRunner.doRun();
       m_results.push_back( ticks );
    }
+
+   // Smooth the data by removing crazy-large results
+   const ticks_t extreme_threshold_1 = getAverage() + getStandardDeviation();
+   auto numRemoved_1 = m_results.remove_if([extreme_threshold_1](int n){ return n > extreme_threshold_1; });
+
+   const ticks_t extreme_threshold_2 = getAverage() + getStandardDeviation();
+   auto numRemoved_2 = m_results.remove_if([extreme_threshold_2](int n){ return n > extreme_threshold_2; });
 }
 
 
